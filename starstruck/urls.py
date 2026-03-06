@@ -17,7 +17,12 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
+from scmt import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("api/star/<star_id>/AffiliateAds.xml", views.affiliateads_xml, name="affiliateads_xml"),
+    path("api/star/<star_id>/LOT8WelcomeProductTextPhrases.xml", views.lot8_WpTp_xml, name="lot8_wptp_xml"),
+    path("api/SpecialMessage.xml", views.specialmessage_xml, name="specialmessage_xml"),
+    path("api/ping", views.ping, name="ping"),
 ]

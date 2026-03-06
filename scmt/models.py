@@ -4,8 +4,9 @@ from django import forms
 # Create your models here.
 class Mso(models.Model):
     name = models.CharField(max_length=100)
-    description = models.TextField(help_text="For your reference.")
-    code = models.CharField(max_length=5, unique=True, help_text="The unique code for this MSO, which will be sent in SpecialMessage.xml entries for this MSO")
+    description = models.TextField(help_text="For your reference.", blank=True)
+    code = models.CharField(max_length=5, unique=True, help_text="The unique code for this MSO. Must match MsoCode in any MPCs for STARs from this MSO.")
+    specialmessage = models.TextField(verbose_name="Special Message", help_text="The content of the SpecialMessage.xml entry for this MSO. Leave blank for none.", blank=True)
 
     def __str__(self):
         return self.name
@@ -69,11 +70,4 @@ class Greeting(models.Model):
         return f"{self.line1} {self.line2} ({self.star.friendlyName})"
     
     def linebreak(self):
-        return f"{self.line1}\n{self.line2}"
-
-class SpecialMessage(models.Model):
-    mso = models.ForeignKey(Mso, on_delete=models.CASCADE, related_name="special_messages")
-    content = models.TextField(help_text="The content of the special message.")
-
-    def __str__(self):
-        return f"Special Message for {self.mso.name}"
+        return f"{self.line1}\\n{self.line2}"
