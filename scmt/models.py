@@ -1,6 +1,24 @@
 from django.db import models
 from django import forms
 
+"""
+Event Attributes
+
+StartDate - Presumably the date the event will start being shown on the STAR
+EndDate - Presumably the date the event will stop being shown on the STAR
+StartTime - Either an accompaniment to StartDate or standalone attribute that indicates the time of day the event will start
+EndTime - Ditto but it indicates the time of day the event will end
+
+Logo - This has something to do with DomesticAds and I can't remember what
+
+SystemId - If the SystemId in the MPC is NOT this, the event does not show up
+HeadendId - Ditto but with HeadendId
+MsoCode - You get the deal, same but with MsoCode.
+StateCode - State abbreviation. But other than that same deal.
+DmaCode - DmaCode needs to match. You get the deal.
+AreaServed - I presume any ZIP code in the MPC AreaServed field that matches will cause the event to show up.
+"""
+
 # Create your models here.
 class Mso(models.Model):
     name = models.CharField(max_length=100)
@@ -64,10 +82,12 @@ class AffiliateAd(models.Model):
 class Greeting(models.Model):
     star = models.ForeignKey(Star, on_delete=models.CASCADE, related_name="greetings")
     line1 = models.CharField(max_length=100, help_text="The first line of the greeting. This should be a short phrase that will be displayed on the STAR's screen.")
-    line2 = models.CharField(max_length=100, help_text="The second line of the greeting. This should be a short phrase that will be displayed on the STAR's screen.")
+    line2 = models.CharField(max_length=100, blank=True, help_text="The second line of the greeting. This should be a short phrase that will be displayed on the STAR's screen.")
 
     def __str__(self):
         return f"{self.line1} {self.line2} ({self.star.friendlyName})"
-    
+
     def linebreak(self):
-        return f"{self.line1}\\n{self.line2}"
+        if self.line2 and self.line2.strip():
+            return f"{self.line1}\\n{self.line2}"
+        return self.line1

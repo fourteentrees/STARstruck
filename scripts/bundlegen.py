@@ -2,13 +2,7 @@
 """
 Script name: bundlegen.py
 
-Purpose of script: Creates Starbundle ZIP files for the purpose of adding files to IntelliSTAR 2-based devices.
-
-Author: physicsprop
-
-Date Created: 03-22-2023
-
-Notes: Can only create "<Add..>" changes. "<Delete..." actions are too destructive to automate.
+A reimplementation of Project Aries' starbundle maker in Python.
 """
 
 import os
