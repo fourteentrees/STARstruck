@@ -2,7 +2,8 @@
 semi-complete management solution for IntelliSTAR systems
 
 ## How to use
-MAKE SURE YOU HAVE EITHER UV OR DJANGO INSTALLED
+MAKE SURE YOU HAVE UV INSTALLED through `pip install uv`  
+This should work well on Windows so if you want you can just host it directly on your i2.
 
 1. Clone and cd into the repository
 2. Run `uv venv` to get into a virtual environment
