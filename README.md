@@ -5,4 +5,17 @@ semi-complete management solution for IntelliSTAR systems
 MAKE SURE YOU HAVE EITHER UV OR DJANGO INSTALLED
 
 1. Clone and cd into the repository
-2. 
+2. Run `uv venv` to get into a virtual environment
+3. Run `uv sync` to install dependencies
+4. Run `python manage.py migrate` to set up the database
+5. Run `python manage.py createsuperuser` to create an admin account
+6. Finally run `python manage.py runserver` to start the server
+
+Note: You will need [the agent](https://github.com/fourteentrees/STARStruck-Agent) installed on an i2 and set up according to that guide. Make sure STARstruck is accessible from your i2!
+
+## Features
+- SpecialMessage support thru MSOs
+- Ad crawl and greeting management
+- Mostly automated, you don't have to touch much
+- Cool admin interface
+- More eventually
