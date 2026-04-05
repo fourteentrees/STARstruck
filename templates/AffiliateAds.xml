@@ -3,7 +3,7 @@
 <Events{{ main_attr|safe }}>
     {% for crawl in crawls %}
     <Event{% if crawl.attrs %}{{ crawl.attrs|safe }}{% endif %}>
-        <Text>{{ crawl.content|safe }}</Text>
+        <Text>{{ crawl.content }}</Text>
     </Event>
     {% endfor %}
 </Events>

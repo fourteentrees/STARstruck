@@ -104,7 +104,8 @@ class AffiliateAd(models.Model):
         if self.is_mso_crawl:
             attributes.append('MsoCode="' + self.star.mso.code + '"')
         else:
-            attributes.append('HeadendId="' + self.star.heId + '"')
+            # skip
+            return
 
         if self.display_from:
             attributes.append('StartDate="' + self.display_from.strftime("%m/%d/%Y") + '"')
