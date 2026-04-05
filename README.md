@@ -16,7 +16,13 @@ Note: You will need [the agent](https://github.com/fourteentrees/STARStruck-Agen
 
 ## Features
 - SpecialMessage support thru MSOs
+- Azul promo text support
 - Ad crawl and greeting management
 - Mostly automated, you don't have to touch much
+- More targeting capability than the actual IBOSS
 - Cool admin interface
-- More eventually
+
+## Features in development
+- CoolER admin interface
+- Original IntelliSTAR support
+- Fake alert generator

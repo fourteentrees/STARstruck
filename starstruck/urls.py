@@ -25,4 +25,8 @@ urlpatterns = [
     path("api/star/<star_id>/LOT8WelcomeProductTextPhrases.xml", views.lot8_WpTp_xml, name="lot8_wptp_xml"),
     path("api/SpecialMessage.xml", views.specialmessage_xml, name="specialmessage_xml"),
     path("api/ping", views.ping, name="ping"),
+    path("api/star/<star_id>/WxDotComPromoText.xml", views.promotext_xml, name="promotext_xml"),
 ]
+
+admin.site.site_header = 'STARstruck administration'
+admin.site.site_title = 'STARstruck admin'
