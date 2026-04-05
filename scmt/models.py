@@ -70,13 +70,13 @@ class Star(models.Model):
     def get_startrandom_crawl(self):
         # COUGH
         if self.startRandomForCrawls:
-            return " startRandom=\"true\""
+            return " StartRandom=\"true\""
         else:
             return ""
 
     def get_startrandom_greeting(self):
         if self.startRandomForGreetings:
-            return " startRandom=\"true\""
+            return " StartRandom=\"true\""
         else:
             return ""
 
@@ -107,11 +107,11 @@ class AffiliateAd(models.Model):
             attributes.append('HeadendId="' + self.star.heId + '"')
 
         if self.display_from:
-            attributes.append('StartDate="' + self.display_from.strftime("%Y-%m-%d") + '"')
+            attributes.append('StartDate="' + self.display_from.strftime("%m/%d/%Y") + '"')
             attributes.append('StartTime="' + self.display_from.strftime("%H:%M:%S") + '"')
 
         if self.display_to:
-            attributes.append('EndDate="' + self.display_to.strftime("%Y-%m-%d") + '"')
+            attributes.append('EndDate="' + self.display_to.strftime("%m/%d/%Y") + '"')
             attributes.append('EndTime="' + self.display_to.strftime("%H:%M:%S") + '"')
 
         if self.dmaCode:
@@ -124,7 +124,7 @@ class AffiliateAd(models.Model):
 
     def get_main_attribute(self):
         if self.star.startRandomForCrawls:
-            return ' startRandom="true"'
+            return ' StartRandom="true"'
 
 class Greeting(models.Model):
     star = models.ForeignKey(Star, on_delete=models.CASCADE, related_name="greetings")
@@ -148,11 +148,11 @@ class Greeting(models.Model):
         # Initialize it with a blank thing so we have a space at the start. Jank but it works.
         attributes = [""]
         if self.display_from:
-            attributes.append('StartDate="' + self.display_from.strftime("%Y-%m-%d") + '"')
+            attributes.append('StartDate="' + self.display_from.strftime("%m/%d/%Y") + '"')
             attributes.append('StartTime="' + self.display_from.strftime("%H:%M:%S") + '"')
 
         if self.display_to:
-            attributes.append('EndDate="' + self.display_to.strftime("%Y-%m-%d") + '"')
+            attributes.append('EndDate="' + self.display_to.strftime("%m/%d/%Y") + '"')
             attributes.append('EndTime="' + self.display_to.strftime("%H:%M:%S") + '"')
 
         if self.dmaCode:
@@ -191,11 +191,11 @@ class WxDotComPromoText(models.Model):
         # Initialize it with a blank thing so we have a space at the start. Jank but it works.
         attributes = [""]
         if self.display_from:
-            attributes.append('StartDate="' + self.display_from.strftime("%Y-%m-%d") + '"')
+            attributes.append('StartDate="' + self.display_from.strftime("%m/%d/%Y") + '"')
             attributes.append('StartTime="' + self.display_from.strftime("%H:%M:%S") + '"')
 
         if self.display_to:
-            attributes.append('EndDate="' + self.display_to.strftime("%Y-%m-%d") + '"')
+            attributes.append('EndDate="' + self.display_to.strftime("%m/%d/%Y") + '"')
             attributes.append('EndTime="' + self.display_to.strftime("%H:%M:%S") + '"')
 
         if self.dmaCode:
