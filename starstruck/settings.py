@@ -25,6 +25,9 @@ SECRET_KEY = "django-insecure-6l-gj3!!@!rdun*_h%(tuyr+tb9$tp@1uoh&!9xaea_as1wv0@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# e1f should work here, don't change this unless you find problems
+TWC_API_KEY = "e1f10a1e78da46f5b10a1e78da96f525"
+
 # Application definition
 
 INSTALLED_APPS = [
