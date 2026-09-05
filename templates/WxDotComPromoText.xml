@@ -3,7 +3,7 @@
 <Events>
     {% for promotext in promotexts %}
     <Event{% if promotext.attrs %}{{ promotext.attrs|safe }}{% endif %}>
-        <Text>{{ promotext.promo|safe }}</Text>
+        <Text>{{ promotext.promo }}</Text>
     </Event>
     {% endfor %}
 </Events>
