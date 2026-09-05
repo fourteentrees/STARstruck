@@ -26,6 +26,8 @@ urlpatterns = [
     path("api/SpecialMessage.xml", views.specialmessage_xml, name="specialmessage_xml"),
     path("api/ping", views.ping, name="ping"),
     path("api/star/<star_id>/WxDotComPromoText.xml", views.promotext_xml, name="promotext_xml"),
+    path("api/wxdata", views.weather_api, name="weather_api"),
+    path("", views.root_page, name="root_page"),
 ]
 
 admin.site.site_header = 'STARstruck administration'
